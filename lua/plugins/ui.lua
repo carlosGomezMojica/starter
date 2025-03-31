@@ -4,7 +4,20 @@ return {
   -- URL: https://github.com/folke/todo-comments.nvim
   -- Description: Plugin to highlight and search for TODO, FIX, HACK, etc. comments in your code.
   -- IMPORTANT: using version "*" to fix a bug
-  { "folke/todo-comments.nvim", version = "*" },
+
+  {
+    "folke/todo-comments.nvim",
+    version = "*",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("todo-comments").setup({
+        signs = true, -- Muestra iconos en la línea lateral
+        keywords = {
+          DONE = { icon = "🎉", color = "hint", alt = { "COMPLETED", "FINISHED" } }, -- Nueva palabra clave
+        },
+      })
+    end,
+  },
 
   -- Plugin: folke/which-key.nvim
   -- URL: https://github.com/folke/which-key.nvim
@@ -119,6 +132,10 @@ return {
       },
     },
     keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } }, -- Keybinding to toggle Zen Mode
+  },
+  {
+    "akinsho/bufferline.nvim",
+    enabled = false,
   },
 
   -- Plugin: snacks.nvim
