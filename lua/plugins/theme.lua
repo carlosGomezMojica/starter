@@ -23,14 +23,14 @@ return {
     end,
   },
 
-  -- Catppuccin Theme (sin integración con Lualine)
+  -- Catppuccin Theme
   {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
     config = function()
       require("catppuccin").setup({
-        flavour = "frappe", -- latte, frappe, macchiato, mocha
+        flavour = "frappe",
         transparent_background = true,
         integrations = {
           treesitter = true,
@@ -42,19 +42,26 @@ return {
     end,
   },
 
-  -- LazyVim Configuration
+  -- Gruvbox Theme
+  {
+    "morhetz/gruvbox",
+    lazy = false,
+    priority = 1000,
+  },
+
+  -- LazyVim Configuration (Predeterminar gruvbox aquí si quieres)
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin", -- Tema predeterminado
+      colorscheme = "gruvbox", -- <- Puedes cambiarlo por "catppuccin" o "solarized-osaka"
     },
   },
 
   -- Toggle Theme Command
   {
-    "nvim-lua/plenary.nvim", -- Dependencia necesaria para algunos temas
+    "nvim-lua/plenary.nvim",
     config = function()
-      local themes = { "solarized-osaka", "catppuccin" }
+      local themes = { "solarized-osaka", "catppuccin", "gruvbox" }
       local current_theme_index = 1
 
       function ToggleTheme()
