@@ -1,13 +1,20 @@
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options her
+--
+-- Configuración específica para COSMIC/Wayland
 vim.g.clipboard = {
   name = "wl-clipboard",
   copy = {
-    ["+"] = "wl-copy --foreground --type text/plain",
-    ["*"] = "wl-copy --foreground --primary --type text/plain",
+    ["+"] = "wl-copy",
+    ["*"] = "wl-copy",
   },
   paste = {
-    ["+"] = "wl-paste --no-newline",
-    ["*"] = "wl-paste --primary --no-newline",
+    ["+"] = "wl-paste",
+    ["*"] = "wl-paste",
   },
-  cache_enabled = true,
+  cache_enabled = 0,
 }
-vim.opt.clipboard = "unnamedplus"
+
+-- Activar el portapapeles del sistema
+vim.opt.clipboard:append("unnamedplus")
