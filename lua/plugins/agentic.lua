@@ -55,8 +55,26 @@ return {
       end,
       desc = "Send Diagnostics",
     },
+    -- change agent
+    {
+      "<leader>ap",
+      function()
+        require("agentic").switch_provider()
+      end,
+      desc = "Swithch ACP Provider",
+    },
   },
   opts = {
-    provider = "codex-acp",
+    provider = "claude-agent-acp",
+    acp_providers = {
+      ["claude-agent-acp"] = {
+        name = "Claude Agent ACP",
+        command = "claude-agent-acp",
+        env = {},
+      },
+      ["codex-acp"] = {
+        name = "Codex ACP",
+      },
+    },
   },
 }
