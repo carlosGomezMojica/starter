@@ -53,7 +53,7 @@ return {
     requires = { "nvim-tree/nvim-web-devicons", opt = true }, -- Optional dependency for icons
     opts = {
       options = {
-        theme = "oldworld", -- Set the theme for lualine
+        theme = "auto",
         icons_enabled = true, -- Enable icons in the statusline
       },
       sections = {
@@ -153,6 +153,17 @@ return {
           filename_bonus = true,
         },
         sources = {
+          projects = {
+            -- Rutas directas a proyectos específicos:
+            projects = {
+              "~/Work/fullcolombia/full_suit_back_end_node_js",
+              "~/.config/nvim",
+              "~/Documents/braind",
+            },
+            -- Directorios padre para escanear con fd (busca .git, etc.):
+            -- dev = { "~/Work", "~/projects" },
+            recent = false, -- incluye proyectos git de archivos recientes
+          },
           explorer = {
             matcher = {
               fuzzy = true, -- Enables fuzzy matching, so you can be a bit imprecise with your search terms
