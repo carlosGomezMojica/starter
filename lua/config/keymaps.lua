@@ -2,6 +2,11 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+----- PROJECTS -----
+vim.keymap.set("n", "<leader>fp", function()
+  require("snacks").picker.projects()
+end, { desc = "Find Projects" })
+
 ----- OIL -----
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
