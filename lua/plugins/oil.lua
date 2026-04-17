@@ -5,8 +5,11 @@ return {
   -- URL: https://github.com/stevearc/oil.nvim
   -- Description: A Neovim plugin for managing and navigating directories.
   "stevearc/oil.nvim",
-
   opts = {
+    view_options = {
+
+      show_hidden = true,
+    },
     -- Key mappings for oil.nvim actions
     keymaps = {
       ["g?"] = "actions.show_help", -- Show help
